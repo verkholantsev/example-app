@@ -81,6 +81,10 @@ const doesAnyCellHaveSameColorNeighbour = cells => {
   );
 };
 
+/**
+ * This function implements a BFS, using queue here helps to avoid limitation of call stack size (in case of
+ * recursive solution)
+ */
 const removeCellsOfSameColor = (cells, {col, row, color}) => {
   if (getAdjacentCellsOfSameColor(cells, {col, row}, color).length === 0) {
     return cells;
@@ -108,6 +112,12 @@ const removeCellsOfSameColor = (cells, {col, row, color}) => {
   return cellsCopy;
 };
 
+/**
+ * One of other possible ways to solve this is to store a transposed matrix and move it to the left (inside of moving
+ * it down). This will make `getColumn` and  `mutateColumnColors` functions redundant. It should be a more optimal
+ * solution, but it comes with a trade-off of unusual/inconvinient matrix dimensions, so I decided to stick to
+ * this approach.
+ */
 const moveColumnsDown = cells => {
   const colsCount = cells[0].length;
   let cellsCopy = copyMatrix(cells);
