@@ -21,6 +21,7 @@
     "predeploy": "yarn run build",
     "deploy": "gh-pages -d build"
   },
+  "homepage": "https://verkholantsev.github.io/example-app",
   "eslintConfig": {
     "extends": "react-app"
   },
