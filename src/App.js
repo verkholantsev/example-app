@@ -86,6 +86,10 @@ const doesAnyCellHaveSameColorNeighbour = cells => {
  * recursive solution)
  */
 const removeCellsOfSameColor = (cells, {col, row, color}) => {
+  if (color === null) {
+    return cells;
+  }
+
   if (getAdjacentCellsOfSameColor(cells, {col, row}, color).length === 0) {
     return cells;
   }
