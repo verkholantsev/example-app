@@ -6,7 +6,6 @@ import './Cell.css';
 const CELL_SIZE = 50;
 
 export default function Cell({row, col, color, onClick}) {
-
   const style = {
     top: row * CELL_SIZE,
     left: col * CELL_SIZE,
@@ -20,7 +19,11 @@ export default function Cell({row, col, color, onClick}) {
     color,
   ]);
 
-  return <div className="Cell" style={style} onClick={onClickCallback} />;
+  const className = ['Cell', color === null ? 'Cell_empty' : null]
+    .filter(className => className !== null)
+    .join(' ');
+
+  return <div className={className} style={style} onClick={onClickCallback} />;
 }
 
 Cell.propTypes = {
